@@ -20,3 +20,6 @@ Original project : https://github.com/Motion-Project/
 		volumes:
 		  - < your configuration file >:/usr/local/etc/motion/
 
+# Recommandation
+
+In motion.conf do not start in demon mode for DOCKER !
