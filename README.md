@@ -1,6 +1,8 @@
 # Motion on docker
 Motion compiled for raspberry pi 3
 
+Original project : https://github.com/Motion-Project/
+
 # Docker compose
 
 	version: '2'
