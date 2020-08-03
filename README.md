@@ -1,4 +1,4 @@
-# Motion on docker
+# Motion on docker swarm raspberry
 
 Motion compiled for Raspberry pi : ARMHF
 
