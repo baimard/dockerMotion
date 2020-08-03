@@ -1,11 +1,15 @@
 # Motion on docker
-Motion compiled for raspberry pi 3
 
-Original project : https://github.com/Motion-Project/
+Motion compiled for Raspberry pi : ARMHF
 
-# Docker compose
+## RUN IN DOCKER SWARM CONTEXT
 
-	version: '2'
+Git : https://github.com/Motion-Project/
+Ref : https://motion-project.github.io/
+
+## docker-compose.yml example
+
+	version: '3'
 	services:
 	  motion:
 		container_name: motion
@@ -20,6 +24,6 @@ Original project : https://github.com/Motion-Project/
 		volumes:
 		  - < your configuration file >:/usr/local/etc/motion/
 
-# Recommandation
+## Recommandation
 
 In motion.conf do not start in demon mode for DOCKER !
