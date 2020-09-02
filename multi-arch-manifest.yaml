@@ -1,0 +1,7 @@
+image: juxo/motion-raspbian
+manifests:
+  - image: juxo/motion-raspbian:arm32v7
+    platform:
+      architecture: arm
+      os: linux
+      variant: V7
