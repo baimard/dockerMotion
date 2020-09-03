@@ -1,4 +1,4 @@
-FROM arm32v7/debian:buster-slim
+FROM debian:buster-slim
 
 LABEL version="4.2.2"
 LABEL maintainer="baimard@41m4rd.ovh"
