@@ -1,6 +1,8 @@
 ## motion-docker on Raspberry
 This project is just a build for armhf (arm32v7) architecture, this is not a FORK !
 
+Project source : https://github.com/Motion-Project/motion
+
 ## Work with
 * docker
 * docker-compose
