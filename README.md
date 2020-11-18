@@ -1,29 +1,41 @@
-# Motion on docker swarm raspberry
+## motion-docker on Raspberry
+This project is just a build for armhf (arm32v7) architecture, this is not a FORK !
 
-Motion compiled for Raspberry pi : ARMHF
+## Work with
+* docker
+* docker-compose
+* docker swarm
 
-## RUN IN DOCKER SWARM CONTEXT
+## Caveats
+If you use /dev/video, locally attached cameras or the database features of Motion, this container won't work for you at this stage.
+This is built directly from git master, if you want something more stable grab a prebuilt release from here and install manually.
 
-Git : https://github.com/Motion-Project/
-Ref : https://motion-project.github.io/
+## How to run
+something like this;
 
-## docker-compose.yml example
+docker run -d --name=motion \
+    -p 7999:7999 \
+    -p 8081:8081 \
+    -p 8082:8082 \
+    -p 8083:8083 \
+    -p 8084:8084 \
+    -p 8085:8085 \
+    -p 8087:8087 \
+    -e TZ="Australia/Brisbane" \
+    -v /volume1/motion/config:/usr/local/etc/motion \
+    -v /volume1/motion/storage:/var/lib/motion \
+    --restart=always \
+    motionproject/motion:latest
 
-	version: '3'
-	services:
-	  motion:
-		container_name: motion
-		build: < Your path to Dokerfile >
-		ports:
-		  - 8080:8080
-		  - 8082:8082
-		  - 8083:8083
-		  - 8084:8084
-		  - 8085:8085
-		  - < any port you need >
-		volumes:
-		  - < your configuration file >:/usr/local/etc/motion/
+## How to Update
+docker stop motion
+docker rm motion
+docker pull motionproject/motion:latest
+- rerun above 'run' command
 
-## Recommandation
+## Things you may need to change
 
-In motion.conf do not start in demon mode for DOCKER !
+name = a label for the container, should be motion or motion-project (but can be anything)
+ports = each -p line denotes 1 camera and its stream port
+TZ = the timezone the container will be running
+volumes = /dockerserver/path/to/config = /dockerserver/path/to/storage
